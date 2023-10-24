@@ -1,12 +1,19 @@
 package org.launchcode.codingevents.models;
 
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 import jakarta.validation.constraints.*;
+import jakarta.persistence.Entity;
 
 import java.util.Objects;
 
+@Entity
 public class Event {
 
+    @Id
+    @GeneratedValue
     private int id;
+
     private static int nextId = 1;
 
     @NotBlank(message = "Name is required")
@@ -33,7 +40,6 @@ public class Event {
     private EventType type;
 
     public Event(String name, String description, String contactEmail, String location, int numberOfAttendees, EventType type) {
-        this();
         this.name = name;
         this.description = description;
         this.contactEmail = contactEmail;
@@ -43,10 +49,7 @@ public class Event {
 
     }
 
-    public Event () {
-        this.id = nextId;
-        nextId++;
-    }
+    public Event () {}
 
     public int getNumberOfAttendees() {
         return numberOfAttendees;
