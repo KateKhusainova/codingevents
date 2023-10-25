@@ -27,69 +27,17 @@ public class Event {
     @Email(message = "Invalid email. Try again.")
     private String contactEmail;
 
-    @NotNull(message = "Location is required")
-    @NotBlank(message = "Location is required")
-    private String location;
-
-    @AssertTrue(message = "This event must have attendees register")
-    private boolean needRegister = true;
-
-    @Positive(message="Number of attendees must be one or more.")
-    private int numberOfAttendees;
-
     private EventType type;
 
     public Event(String name, String description, String contactEmail, String location, int numberOfAttendees, EventType type) {
         this.name = name;
         this.description = description;
         this.contactEmail = contactEmail;
-        this.location = location;
-        this.numberOfAttendees = numberOfAttendees;
         this.type = type;
 
     }
 
     public Event () {}
-
-    public int getNumberOfAttendees() {
-        return numberOfAttendees;
-    }
-
-    public void setNumberOfAttendees(int numberOfAttendees) {
-        this.numberOfAttendees = numberOfAttendees;
-    }
-
-    public boolean isNeedRegister() {
-        return needRegister;
-    }
-
-    public void setNeedRegister(boolean needRegister) {
-        this.needRegister = needRegister;
-    }
-
-    public String getLocation() {
-        return location;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
-    }
-
-    public EventType getType() {
-        return type;
-    }
-
-    public void setType(EventType type) {
-        this.type = type;
-    }
-
-    public String getContactEmail() {
-        return contactEmail;
-    }
-
-    public void setContactEmail(String contactEmail) {
-        this.contactEmail = contactEmail;
-    }
 
     public String getName() {
         return name;
@@ -103,6 +51,20 @@ public class Event {
     }
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getContactEmail() {
+        return contactEmail;
+    }
+    public void setContactEmail(String contactEmail) {
+        this.contactEmail = contactEmail;
+    }
+
+    public EventType getType() {
+        return type;
+    }
+    public void setType(EventType type) {
+        this.type = type;
     }
 
     public int getId() {
