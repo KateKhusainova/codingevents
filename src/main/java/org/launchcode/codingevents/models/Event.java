@@ -4,13 +4,10 @@ import jakarta.persistence.*;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.*;
 
-import java.util.Objects;
-
 @Entity
 public class Event extends AbstractEntity {
 
     @NotBlank(message = "Name is required")
-    @Size(min = 3, max = 50, message = "Name must be between 3 and 50 characters")
     private String name;
 
     @OneToOne(cascade = CascadeType.ALL)
